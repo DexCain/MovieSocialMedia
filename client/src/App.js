@@ -21,6 +21,8 @@ function App() {
 
   const { user } = useAuthContext()
 
+  console.log(user)
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -43,11 +45,7 @@ function App() {
             />
             <Route 
               path="/friends"
-              element={<FriendsPage />}
-            />
-            <Route 
-              path="/404"
-              element={<Error404 />}
+              element={user ?<FriendsPage /> : <Navigate to="/login"/>}
             />
             <Route 
               path="/login"

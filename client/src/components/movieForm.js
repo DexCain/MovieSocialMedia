@@ -14,7 +14,6 @@ const MovieForm = () => {
 
     const[showConf, setShowConfirm] = useState(null)
     const[error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
     const { user } = useAuthContext()
     
     const handleSubmit = async (e) => {
@@ -39,12 +38,10 @@ const MovieForm = () => {
             //Some error in the below if statement
         if(!response.ok){
             setError(json.error)
-            setEmptyFields(json.emptyFields)
             setShowConfirm(null)
         }
         
         else{
-            setEmptyFields([])
             setError(null)
             setTitle(json.title)
             setDirector(json.director)
@@ -107,7 +104,6 @@ const MovieForm = () => {
                 type='text'
                 onChange={(e) => setInTitle(e.target.value)}
                 value={inTitle}
-                className={emptyFields.includes('title') ? 'error' : ''}
             />
 
             <button disabled={showConf !== null}>Search for Movie</button>

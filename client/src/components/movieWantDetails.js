@@ -9,6 +9,8 @@ const MovieWantDetails = ( { movie } ) => {
 
     const { user } = useAuthContext()
 
+    var url = "https://www.imdb.com/title/" + String(movie.movie.imdb_id)
+
     const handleClick = async () => {
 
         if(!user){
@@ -42,8 +44,8 @@ const MovieWantDetails = ( { movie } ) => {
                 <strong>Director: </strong>{movie.movie.director}
             </p>
             <p>
-                <strong><a href={movie.movie.page}>
-                    Movie IMDB site
+                <strong><a target="_blank" href={url}>
+                    IMDB Page
                 </a></strong>
             </p>
             <span className="material-symbols-outlined" id='delete' onClick={handleClick}>delete</span>

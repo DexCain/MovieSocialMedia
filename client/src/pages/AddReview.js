@@ -31,11 +31,15 @@ const AddReview = () => {
                 return
             }
 
+            console.log(id)
+
             const response = await fetch('/api/moviesWant/' + String(id), {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
             })
+
+            console.log(response)
 
             if(!response.ok){
                 return navigate('/404')

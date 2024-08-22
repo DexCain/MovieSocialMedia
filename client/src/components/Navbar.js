@@ -10,7 +10,7 @@ const Navbar = () => {
 
     const handleClick = () => {
         logout()
-        window.location = "/"
+        window.location = "/login"
         
     }
 

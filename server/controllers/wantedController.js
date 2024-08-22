@@ -23,7 +23,11 @@ const newWantedMovieAdd = async (req, res) => {
     try {
         const user_id = req.user._id
 
-        const checkDup = await MovieWant.findOne({movie_id, user_id})
+        const checkDup = await MovieWant.findOne({movie_id, user_id: user_id.toString()})
+
+        console.log(movie_id)
+        console.log(user_id.toString())
+
 
         if(checkDup){
             res.status(400).json({error: 'Already Added'})
@@ -66,6 +70,9 @@ const getWantedMovies = async (req, res) => {
 
 
 const getWantedMovie = async (req, res) => {
+
+    const user_id = req.user._id
+
     const { id } = req.params
 
 
@@ -73,10 +80,10 @@ const getWantedMovie = async (req, res) => {
         return res.status(404).json({ error: 'No such movie'})
     }
 
-    const movie = await MovieWant.findOne({ _id: id })
+    const movie = await MovieWant.findOne({ _id: id, user_id})
 
     if(!movie) {
-        res.status(400).json({error: "Movie wasn't defined"})
+        return res.status(400).json({error: "Movie wasn't defined"})
     }
 
     const fullMovie = await Movie.findById({ _id: movie.movie_id })

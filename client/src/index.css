@@ -33,9 +33,8 @@ header a {
 
 /* Wish List Page */
 .MovieWantList {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  gap: 100px;
+  display: flex;
+  flex-direction: column-reverse;
 }
 .movie-details, .watched-movie-details {
   background: #fff;
