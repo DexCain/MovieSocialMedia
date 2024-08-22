@@ -1,0 +1,261 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;800&family=VT323&display=swap');
+
+/* layout */
+:root {
+  --primary: #1aac83;
+  --error: #e7195a;
+}
+body {
+  background: #f1f1f1;
+  margin: 0;
+  font-family: "Poppins";
+}
+header {
+  background: #fff;
+}
+header .container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: #333;
+  text-decoration: none;
+}
+.pages{
+  max-width: 1400px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Wish List Page */
+.MovieWantList {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 100px;
+}
+.movie-details, .watched-movie-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.movie-details h4, .watched-movie-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.movie-details p, .watched-movie-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+.movie-details span#delete {
+  position: absolute;
+  top: 60px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+.movie-details span#watch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+.movie-details span#delete:hover {
+  color:var(--error);
+}
+
+.movie-details span#watch:hover {
+  color:var(--primary);
+}
+
+/* new movie form */
+label, input {
+  display: block;
+}
+input {
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+form button {
+  background: var(--primary);
+  border: 0;
+  color: #fff;
+  padding: 10px;
+  font-family: "Poppins";
+  border-radius: 4px;
+  cursor: pointer;
+}
+div.error {
+  padding: 10px;
+  background: #ffefef;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin: 20px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+
+.container-links {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-bottom: 30px;
+  position: relative;
+  display: flex;
+  justify-content: left;
+}
+
+.container-links div{
+  padding: 5px;
+  border-radius: 40px;
+  border: solid;
+  margin-right: 20px;
+  transition: ease-in-out 500ms;
+}
+
+.container-links div:hover {
+  background-color: var(--primary);
+}
+
+/* Review Page*/
+.review-details {
+  background: #fff;
+  border-radius: 4px;
+  margin: 20px auto;
+  padding: 20px;
+  position: relative;
+  display: inline-flex;
+  gap: 100px;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.05);
+}
+.review-details h4{
+  margin: 0 0 10px 0;
+  font-size: 1.2em;
+  color: var(--primary);
+}
+.review-details p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.review-buttons{
+  position:relative;
+}
+
+#review-delete {
+  position:absolute;
+  top: 50px;
+  right:20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+
+
+#review-watch {
+  position:absolute;
+  top: 10px;
+  right:20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
+#review-delete:hover {
+  color:var(--error);
+}
+
+#review-watch:hover {
+  color:var(--primary);
+}
+
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 4px;
+}
+
+.authLinks {
+  display: flex;
+  align-items: center;
+}
+
+.auth-links{
+  display: flex;
+  align-items: center;
+}
+
+.auth-links a {
+  margin-left: 10px;
+}
+
+.auth-links button {
+  background: #fff;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 6px 10px;
+  border-radius: 4px;
+  font-family: "Popppins";
+  cursor: pointer;
+  font-size: 1em;
+}
+
+#nav-right-align {
+  margin-left: auto;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+#nav-right-align span,
+#nav-right-align button {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 5px;
+
+}
+
+#nav-right-align button {
+  border-radius: 40px;
+  border: 1.2px solid black;
+  background-color: white;
+  font-family: "Poppins";
+  cursor: pointer;
+  font-size: 16px;
+  transition: ease-in-out 500ms;
+}
+
+#nav-right-align button:hover {
+  background-color: rgb(251, 80, 80);
+
+}
