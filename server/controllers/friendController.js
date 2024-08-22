@@ -1,6 +1,6 @@
 const User = require('../models/userModel')
 const Friend = require('../models/friendModel')
-const MovieWant = require('../models/movieWantModel')
+const Movie = require('../models/movieModel')
 const MovieWatched = require('../models/movieWatchedModel')
 
 const getFriends = async (req, res) => {
@@ -117,7 +117,18 @@ const getFriendTopMovies = async (req, res) => {
 
         const movies = await MovieWatched.find({user_id: friend._id}).sort({review: -1}).limit(5)
 
-        res.status(200).json({movies})
+        let fullMovieList = []
+
+        for (let i = 0; i < movies.length; i++) {
+            console.log("HERE")
+
+            const fullMovie = await Movie.findById({ _id: movies[i].movie_id })
+    
+            fullMovieList.push({userMovieID: movies[i]._id, review:movies[i].review, movie: fullMovie})
+    
+        }
+
+        res.status(200).json(fullMovieList)
     } catch(error) {
         res.status(400).json({error: error.message})
     }
@@ -147,7 +158,16 @@ const getFriendRecentMovies = async (req, res) => {
 
         const movies = await MovieWatched.find({user_id: friend._id}).sort({createdAt: 1}).limit(5)
 
-        res.status(200).json({movies})
+        let fullMovieList = []
+
+        for (let i = 0; i < movies.length; i++) {
+            const fullMovie = await Movie.findById({ _id: movies[i].movie_id })
+    
+            fullMovieList.push({userMovieID: movies[i]._id, review:movies[i].review, movie: fullMovie})
+    
+        }
+
+        res.status(200).json(fullMovieList)
     } catch(error) {
         res.status(400).json({error: error.message})
     }
