@@ -1,6 +1,7 @@
 const User = require('../models/userModel')
 const Friend = require('../models/friendModel')
-
+const MovieWant = require('../models/movieWantModel')
+const MovieWatched = require('../models/movieWatchedModel')
 
 const getFriends = async (req, res) => {
     const user_id = req.user._id
@@ -64,8 +65,6 @@ const addFriend = async (req, res) => {
 const deleteFriend = async (req, res) => {
     const { user } = req.params
 
-    console.log(user)
-
     const friend = await User.findOne({username: user})
 
     if(!friend){
@@ -96,8 +95,68 @@ const deleteFriend = async (req, res) => {
 
 }
 
+const getFriendTopMovies = async (req, res) => {
+    const { user } = req.params
+
+    const friend = await User.findOne({username: user})
+
+    if(!friend){
+        return res.status(404).json({error: 'No user with provided username'})
+    }
+
+    try{
+        const user_id = req.user._id
+
+        // Checking if this user is already friends with the other
+        const checkExistingFriendship = await Friend.findOne({user_id, friend_id: friend._id})
+
+        if(!checkExistingFriendship){
+            res.status(400).json({error: 'You are not friends'})
+            return
+        }
+
+        const movies = await MovieWatched.find({user_id: friend._id}).sort({review: -1}).limit(5)
+
+        res.status(200).json({movies})
+    } catch(error) {
+        res.status(400).json({error: error.message})
+    }
+
+
+}
+
+const getFriendRecentMovies = async (req, res) => {
+    const { user } = req.params
+
+    const friend = await User.findOne({username: user})
+
+    if(!friend){
+        return res.status(404).json({error: 'No user with provided username'})
+    }
+
+    try{
+        const user_id = req.user._id
+
+        // Checking if this user is already friends with the other
+        const checkExistingFriendship = await Friend.findOne({user_id, friend_id: friend._id})
+
+        if(!checkExistingFriendship){
+            res.status(400).json({error: 'You are not friends'})
+            return
+        }
+
+        const movies = await MovieWatched.find({user_id: friend._id}).sort({createdAt: 1}).limit(5)
+
+        res.status(200).json({movies})
+    } catch(error) {
+        res.status(400).json({error: error.message})
+    }
+}
+
 module.exports = {
     getFriends,
     addFriend,
-    deleteFriend
+    deleteFriend,
+    getFriendTopMovies,
+    getFriendRecentMovies
 }

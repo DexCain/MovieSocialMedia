@@ -13,14 +13,8 @@ const FriendDetails = ( { friend } ) => {
         if(!user){
             return
         }
-
-        const theFriend = {friend_user: friend.friend_username}
-
-        console.log(friend.friend_username)
-
         const response = await fetch('/api/friends/' + friend.friend_username, {
             method: 'DELETE',
-            body: JSON.stringify(theFriend),
             headers: {
                 'Authorization': `Bearer ${user.token}`
             }
@@ -37,15 +31,47 @@ const FriendDetails = ( { friend } ) => {
 
     }
 
+    const topMovies = async () => {
+
+        if(!user){
+            return
+        }
+
+        const response = await fetch('/api/friends/top/' + friend.friend_username, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+
+        const json = await response.json()
+    }
+
+    const recentMovies = async () => {
+
+        if(!user){
+            return
+        }
+
+        const response = await fetch('/api/friends/recent/' + friend.friend_username, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${user.token}`
+            }
+        })
+
+        const json = await response.json()
+    }
+
     return(
         <div className="movie-details">
             <h4>
                 {friend.friend_username}
             </h4>
-            <button>
+            <button onClick={topMovies}>
                 {friend.friend_username} Top Movies
             </button>
-            <button>
+            <button onClick={recentMovies}>
                 {friend.friend_username} Recent Movies
             </button>
             <span className="material-symbols-outlined" id='delete' onClick={handleClick}>delete</span>
