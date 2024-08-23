@@ -76,6 +76,20 @@ header a {
   color: #333;
 }
 
+
+.movie-details button {
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 10px;
+  margin-right: 5px;
+  border: 1px solid black;
+}
+
+.movie-details button:hover{
+  background-color: var(--primary)
+}
+
 .movie-details span#delete:hover {
   color:var(--error);
 }
@@ -141,9 +155,10 @@ input.error {
 
 /* Review Page*/
 .review-details {
+  width: 95%;
   background: #fff;
   border-radius: 4px;
-  margin: 20px auto;
+  margin: 2.5% auto;
   padding: 20px;
   position: relative;
   display: inline-flex;
@@ -162,6 +177,7 @@ input.error {
 }
 
 .review-buttons{
+  margin-left:auto;
   position:relative;
 }
 
@@ -257,4 +273,17 @@ form.signup, form.login {
 #nav-right-align button:hover {
   background-color: rgb(251, 80, 80);
 
+}
+
+.show-movie-form {
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.show-movie-form img {
+  width: 500px;
+  height: auto;
+  margin: auto
 }

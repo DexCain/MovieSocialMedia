@@ -112,7 +112,7 @@ const MovieForm = () => {
             
         </form>
         }
-        {showConf && <form onSubmit={handleSubmitConfirm}>
+        {showConf && <form className="show-movie-form" onSubmit={handleSubmitConfirm}>
                 <h3>Title: {title}</h3>
                 <h4>Director: {director}</h4>
                 

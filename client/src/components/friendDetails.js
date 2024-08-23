@@ -94,10 +94,10 @@ const FriendDetails = ( { friend } ) => {
                 {friend.friend_username}
             </h4>
             <button onClick={topMovies}>
-                {friend.friend_username} Top Movies
+                Top Movies
             </button>
             <button onClick={recentMovies}>
-                {friend.friend_username} Recent Movies
+                Recent Movies
             </button>
             <button onClick={hide}>
                 Hide Movies
