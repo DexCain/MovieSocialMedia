@@ -13,10 +13,10 @@ However there is one more thing that is missing...
 Since I used an API and there is other secret information that shouldn't be shared online, within the server directory, you must create a .env file.
 
 ```
-PORT= \[ PORT number you want to use for the backend API \]
-MONGO_URI= \[ MongoDB cluster connection string \]
-SECRET= \[ SECRET for security on JWT, just make it a random string of letters  \]
-OMDB_API_KEY= \[ This is the API key that you need to get from OMDB in order to get movie information \]
+PORT= [PORT number you want to use for the backend API]
+MONGO_URI= [MongoDB cluster connection string]
+SECRET= [SECRET for security on JWT, just make it a random string of letters]
+OMDB_API_KEY= [This is the API key that you need to get from OMDB in order to get movie information]
 ```
 
 Now that the .env file has been created we must go to the client's package.json, to reference the port number we just defined for the API within the .env file.
