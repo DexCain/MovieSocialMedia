@@ -25,9 +25,6 @@ const newWantedMovieAdd = async (req, res) => {
 
         const checkDup = await MovieWant.findOne({movie_id, user_id: user_id.toString()})
 
-        console.log(movie_id)
-        console.log(user_id.toString())
-
 
         if(checkDup){
             res.status(400).json({error: 'Already Added'})

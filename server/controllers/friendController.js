@@ -120,7 +120,6 @@ const getFriendTopMovies = async (req, res) => {
         let fullMovieList = []
 
         for (let i = 0; i < movies.length; i++) {
-            console.log("HERE")
 
             const fullMovie = await Movie.findById({ _id: movies[i].movie_id })
     

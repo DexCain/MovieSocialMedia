@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext } from '../hooks/useAuthContext'
-import { Navigate } from 'react-router-dom'
+
 const Navbar = () => {
 
     const { logout } = useLogout()

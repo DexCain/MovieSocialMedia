@@ -44,7 +44,7 @@ const MovieWantDetails = ( { movie } ) => {
                 <strong>Director: </strong>{movie.movie.director}
             </p>
             <p>
-                <strong><a target="_blank" href={url}>
+                <strong><a target="_blank" rel="noreferrer" href={url}>
                     IMDB Page
                 </a></strong>
             </p>

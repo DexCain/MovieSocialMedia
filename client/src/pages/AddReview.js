@@ -1,12 +1,8 @@
 import { useEffect, useState } from 'react'
-import { useMovieWatchedContext } from '../hooks/useMovieWatchedContext'
 import { useParams, useNavigate } from 'react-router-dom'
 
 import { useAuthContext } from '../hooks/useAuthContext'
 
-//components
-import MovieWatchedDetails from '../components/movieWatchedDetails'
-import MovieForm from '../components/movieForm'
 
 const AddReview = () => {
 
@@ -31,15 +27,11 @@ const AddReview = () => {
                 return
             }
 
-            console.log(id)
-
             const response = await fetch('/api/moviesWant/' + String(id), {
                 headers: {
                     'Authorization': `Bearer ${user.token}`
                 }
             })
-
-            console.log(response)
 
             if(!response.ok){
                 return navigate('/404')

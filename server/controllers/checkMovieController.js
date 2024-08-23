@@ -44,7 +44,6 @@ const checkMovieByTitle = async (req, res) => {
 
         if(typeof Ratings !== 'undefined' && Ratings !== null){
 
-            console.log(Ratings)
             for(rates of Ratings){
                 if(rates.Source == "Rotten Tomatoes"){
                     rate = rate.concat(rates.Value)

@@ -4,7 +4,6 @@ import { useMovieWatchedContext } from '../hooks/useMovieWatchedContext'
 
 //components
 import MovieWatchedDetails from '../components/movieWatchedDetails'
-import MovieForm from '../components/movieForm'
 import { useAuthContext } from '../hooks/useAuthContext'
 
 const MovieWatchedList = () => {
@@ -32,7 +31,7 @@ const MovieWatchedList = () => {
         if(user){
             fetchWorkouts()
         }
-    }, [dispatch])
+    }, [dispatch, user])
 
     return (
         <div className="MovieWantList">

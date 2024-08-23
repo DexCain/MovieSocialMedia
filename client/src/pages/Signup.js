@@ -10,10 +10,6 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        console.log(email)
-        console.log(username)
-        console.log(password)
-
         await signup(email, username, password)
     }
 

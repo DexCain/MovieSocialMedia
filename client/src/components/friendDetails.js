@@ -52,13 +52,7 @@ const FriendDetails = ( { friend } ) => {
 
         const json = await response.json()
 
-        console.log(json)
-
-
         setRatedMovies(json)
-
-
-        console.log(ratedMovies)
     }
 
     const recentMovies = async () => {

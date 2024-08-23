@@ -39,7 +39,7 @@ const MovieWantList = () => {
                     Movie Wish List
                 </h3>
                 {movies && movies.map((movie) => (
-                    <MovieWantDetails key={movie._id} movie={movie} />
+                    <MovieWantDetails key={movie.movie._id} movie={movie} />
                 ))}
                 <div>End of Watch List</div>
             </div>
