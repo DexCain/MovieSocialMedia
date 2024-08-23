@@ -19,7 +19,7 @@ SECRET= [SECRET for security on JWT, just make it a random string of letters]
 OMDB_API_KEY= [This is the API key that you need to get from OMDB in order to get movie information]
 ```
 
-Now that the .env file has been created we must go to the client's package.json, to reference the port number we just defined for the API within the .env file.
+Now that the .env file has been created you must go to the client's package.json and after the proxy key, you must reference the port number you just defined for the API within the .env file within the local host url.
 
 ---
 
