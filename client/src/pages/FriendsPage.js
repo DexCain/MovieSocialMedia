@@ -47,11 +47,11 @@ const FriendsPage = () => {
                 <input onCLick="handleSubmitSearch()" type="text" name="friendUser" id="friendUserInput"></input>
             </div> */}
 
-            <div class="friend-grid-container">
+            <div className="friend-grid-container">
 
             <FriendAddForm />
 
-                <div class="friend-element">
+                <div className="friend-element">
                     {friends && friends.map((friend) => (
                         <FriendDetails key={friend.friend_username} friend={friend}/>
                     ))}

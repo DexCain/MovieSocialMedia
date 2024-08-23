@@ -9,7 +9,6 @@ const FriendAddForm = () => {
     const[friendUser, setFriendUser] = useState('')
 
     const[error, setError] = useState(null)
-    const [emptyFields, setEmptyFields] = useState([])
     const { user } = useAuthContext()
     
     const handleSubmit = async (e) => {
@@ -41,11 +40,9 @@ const FriendAddForm = () => {
             //Some error in the below if statement
         if(!response.ok){
             setError(json.error)
-            setEmptyFields(json.emptyFields)
         }
         
         else{
-            setEmptyFields([])
             setError(null)
             dispatch({type: 'ADD_FRIEND', payload: json})
         }
@@ -63,10 +60,9 @@ const FriendAddForm = () => {
                     type='text'
                     onChange={(e) => setFriendUser(e.target.value)}
                     value={friendUser}
-                    //className={emptyFields.includes('title') ? 'error' : ''}
                 />
 
-                <button>Add Friend</button>
+                <button className='confirm'>Add Friend</button>
                 {error && <div className='error'>{error}</div>}
 
                 

@@ -38,7 +38,7 @@ const Signup = () => {
                 value={password}
             />
 
-            <button disabled={isLoading}>Sign up</button>
+            <button className='confirm' disabled={isLoading}>Sign up</button>
             {error && <div className='error'>{error}</div>}
         </form>
     )
