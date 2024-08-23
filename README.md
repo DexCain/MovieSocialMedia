@@ -6,7 +6,7 @@ However, your cannot just download the files and have the project.
 
 ---
 
-First and foremost, none of the required packages were included in this repo, so after downloading the contents, make sure to run npm install in both the client and server folder. This will install all the required packages.
+First and foremost, none of the required packages were included in this repo, so after downloading the contents, make sure to run `npm install` in both the client and server folder. This will install all the required packages.
 
 However there is one more thing that is missing...
 
