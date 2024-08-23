@@ -93,6 +93,13 @@ const MovieForm = () => {
         }
     }
 
+    const handleReset = (e) => {
+        setShowConfirm(null)
+        setTitle('')
+        setDirector('')
+        setPosterURL('')
+    }
+
     return(
         <div>
         {!showConf && 
@@ -106,7 +113,7 @@ const MovieForm = () => {
                 value={inTitle}
             />
 
-            <button disabled={showConf !== null}>Search for Movie</button>
+            <button className="confirm" disabled={showConf !== null}>Search for Movie</button>
             {error && <div className='error'>{error}</div>}
 
             
@@ -118,7 +125,9 @@ const MovieForm = () => {
                 
                 <img src={posterURL} alt="Poster of the movie" />
                 
-                <button>Confirm Selection</button>
+                <button className="confirm">Confirm Selection</button>
+                <button id="remove" type="reset" onClick={handleReset}>Remove Selection</button>
+
             </form>}
         </div>
     )

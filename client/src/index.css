@@ -111,8 +111,8 @@ input {
   border-radius: 4px;
   box-sizing: border-box;
 }
-form button {
-  background: var(--primary);
+
+form button{
   border: 0;
   color: #fff;
   padding: 10px;
@@ -120,6 +120,15 @@ form button {
   border-radius: 4px;
   cursor: pointer;
 }
+
+form button.confirm {
+  background: var(--primary);
+}
+
+form button#remove {
+  background: var(--error)
+}
+
 div.error {
   padding: 10px;
   background: #ffefef;
